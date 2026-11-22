@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> -->
+    <!-- SEO -->
+    <meta name="description" content="東京電子専門学校、ウェブ・メディア科の学生が作成した、
+    アイスキャッチングゲームというブラウザ上で動くゲームです。ランキングシステムも備わっています">
+    <meta name="keywords" content="東京電子専門学校,学園祭,ウェブメディア科,ハロウィンゲーム,アイスゲーム,">
+    <!-- ここからOGP -->
+    <meta property="og:url" content="https://fes2021.tokyo-ec.net/wm/Halloween_Game/index.html" /> 
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ハロウィンアイスキャッチゲーム" />
+    <meta property="og:description" content="東京電子専門学校、ウェブ・メディア科の学生が作成した、
+    アイスキャッチングゲームというブラウザ上で動くゲームです。ランキングシステムも備わっています" />
+    <meta property="og:image" content="https://fes2021.tokyo-ec.net/wm/ice_game/img/thumbnail.png" />
+    <meta property="og:site_name" content="東京電子専門学校 ウェブ・メディア科" />
+    <meta property="og:locale" content="ja_JP" />
+    <!-- ここまでがOGP -->
+    <title>ハロウィンアイスキャッチゲーム</title>
+    <!-- スタイルシート -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/angle.css">
+    <!-- ファビコン -->
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-846ND909VN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-846ND909VN');
+    </script>
+</head>
+<body class="fade_out">
+    <!-- 縦画面禁止 -->
+    <div id="AngleFrame">
+        <h1 id="AngleFrameText">このゲームはスマホの横画面専用です<br>※Google Chrome だとうまく動作しない可能性があります。<br>（Safari推奨）</h1>
+    </div>
+    <div id="main_wrapper">
+        <!-- ここから背景要素 -->
+        <div class="main_background_img_wrapper">
+            <img class="main_background_img" src="img/back.png" alt="ハロウイン背景画像">
+        </div>
+        <!-- 月 -->
+        <div id="moon"></div>
+        <!-- 骸骨 -->
+        <div class="bone"><img src="img/bone.png" alt="鎌を持った骸骨"></div>
+        <!-- ここまでが背景要素 -->
+        <div class="main_text_img_wrapper">
+            <img class="main_text_img" src="img/index_text.png" alt="ハロウィンテキスト">
+        </div>
+        <h1 class="index_text">コーンとアイスを合体させて<br>アイスクリームを作ろう</h1>
+        <a href="rule.html" class="rule_link" onclick="audio()">はじめる</a>
+    </div>
+    <!-- 効果音 -->
+    <audio src="audio/btn.mp3" id="audio_1"></audio>
+    <!-- スクリプト -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="js/font.js"></script>
+    <script src="js/loading.js"></script>
+    <script src="js/NotScroll.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/angle.js"></script>
+    <!-- <script>
+        let vh = window.innerHeight;
+        document.getElementById('main_wrapper').style.height = vh + 'px';
+        window.addEventListener("orientationchange", ()=>{
+            setTimeout(() => {
+                let vh = window.innerHeight;
+                document.getElementById('main_wrapper').style.height = vh + 'px';
+                console.log("vh");
+            }, 100);
+        });
+    </script> -->
+</body>
+</html>

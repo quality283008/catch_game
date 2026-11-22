@@ -1,0 +1,27 @@
+@charset "UTF-8";
+.rule_text_img_wrapper{
+    width: 30%;
+    margin: 0 auto;
+    padding-top: 5%;
+}
+.rule_text_img{
+    width: 100%;
+}
+.rule_text{
+    padding-top: 2%;
+    width: 60%;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    color: #fff;
+    letter-spacing: .1em;
+    line-height: 1.8;
+    margin-bottom: 5%;
+}
+@media screen and (min-width:780px) {
+    .rule_text_img_wrapper{
+        padding-top: 10%;
+    }
+    .rule_text{
+        font-size: 2.4rem;
+    }
+}

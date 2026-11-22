@@ -1,0 +1,69 @@
+@charset "UTF-8";
+/* indexタイトル */
+.main_text_img_wrapper{
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 10%;
+}
+.main_text_img{
+    width: 100%;
+}
+/* indexサブタイトル */
+.index_text{
+    padding-top: 2%;
+    font-size: 2rem;
+    line-height: 1.5;
+    letter-spacing: .1em;
+    color: #fff;
+    margin-bottom: 5%;
+}
+@media screen and (min-width:780px) {
+    .index_text{
+        font-size: 2.8rem;
+    }
+}
+.rule_link{
+    display: inline-block;
+    font-size: 2rem;
+    background: #990E7A;
+    letter-spacing: .1em;
+    border-radius: 20px;
+    margin: 0 30px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.85) 3px 3px;
+    transition: all ease-in-out .2s;
+    padding: 12px 50px 12px 30px;
+    color: #fff;
+}
+.rule_link:hover{
+    transform: translate(3px,3px);
+    box-shadow: 0px 0px;
+    color: #F6C072;
+}
+.rule_link::before{
+    content: "";
+    width: 16px;
+    height: 16px;
+    background-image: url(../img/arrow_img.png);
+    background-size: cover;
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all ease-in-out .2s;
+}
+.rule_link:hover:before{
+    transform: translateY(-50%) rotate(90deg);
+    background-image: url(../img/arrow_img_f.png);
+}
+@media screen and (min-width:780px) {
+    .rule_link{
+        font-size: 3rem;
+        border-radius: 25px;
+        padding: 12px 60px 12px 30px;
+    }
+    .rule_link::before{
+        width: 20px;
+        height: 20px;
+    }
+}

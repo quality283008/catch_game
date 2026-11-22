@@ -1,0 +1,432 @@
+@charset "UTF-8";
+/* ポイント */
+.point_box{
+    display: flex;
+    font-size: 2.5rem;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    letter-spacing: .1em;
+    background-color: #9062aa;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: solid 2px #fff;
+}
+@media screen and (min-width:780px) {
+    .point_box{
+        font-size: 4rem;
+        border: solid 3px #fff;
+        border-radius: 8px;
+    }
+}
+
+/* コーン */
+#cone{
+    width: 60px;
+    height: 80px;
+    position: absolute;
+    bottom: -5%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000;
+    background-image: url(../img/cone.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background-image ease-in-out .1s;
+}
+@media screen and (min-width:780px) {
+    #cone{
+        width: 150px;
+        height: 200px;
+    }
+}
+/* パンプキン */
+#pumpkin_1,#pumpkin_2,#pumpkin_3,#pumpkin_4{
+    width: 75px;
+    position: absolute;
+    animation: PumpkinAnime 3s linear infinite;
+    z-index: 1000;
+}
+@keyframes PumpkinAnime {
+    0%,100%{
+        transform: translateX(-50%) rotate(0);
+    }
+    50%{
+        transform: translateX(-50%) rotate(35deg);
+    }
+}
+.pumpkin_img1,.pumpkin_img2,.pumpkin_img3,.pumpkin_img4{
+    width: 100%;
+}
+#pumpkin_1{
+    top: 15%;
+    left: 20%;
+}
+#pumpkin_2{
+    top: 15%;
+    left: 40%;
+}
+#pumpkin_3{
+    top: 15%;
+    left: 60%;
+}
+#pumpkin_4{
+    top: 15%;
+    left: 80%;
+}
+@media screen and (min-width:780px) {
+    #pumpkin_1,#pumpkin_2,#pumpkin_3,#pumpkin_4{
+        width: 150px;
+    }
+}
+
+/* アイス */
+#ice_1,#ice_2,#ice_3,#ice_4{
+    width: 50px;
+    position: absolute;
+    transform: translateX(-50%);
+}
+.ice_img1,.ice_img2,.ice_img3,.ice_img4{
+    width: 100%;
+}
+#ice_1{
+    top: 19%;
+    left: 20%;
+}
+#ice_2{
+    top: 19%;
+    left: 40%;
+}
+#ice_3{
+    top: 19%;
+    left: 60%;
+}
+#ice_4{
+    top: 19%;
+    left: 80%;
+}
+@media screen and (min-width:780px) {
+    #ice_1,#ice_2,#ice_3,#ice_4{
+        width: 100px;
+    }
+}
+/* ---------------------------------- */
+/* 左ボタン */
+.left_btn_wrapper{
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    background: #9062aa;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+}
+.left_btn_arrow{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+    width: 20px;
+    height: 20px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+#left_btn{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+}
+/* 右ボタン */
+.right_btn_wrapper{
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    background: #9062aa;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
+.right_btn_arrow{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(-135deg);
+    width: 20px;
+    height: 20px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+#right_btn{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+}
+@media screen and (min-width:780px) {
+    .left_btn_wrapper{
+        display: none;
+    }
+    .right_btn_wrapper{
+        display: none;
+    }
+}
+
+
+/* タイマー */
+.Timer_wrapper{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+.circle{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: #9062aa;
+    border-radius: 50%;
+    border: solid 2px #fff;
+    text-align: center;
+    overflow: hidden;
+    z-index: 1;
+}
+.circle::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -40px;
+    width: 80px;
+    height: 80px;
+    background: #F6C072;
+    transform-origin: right 40px;
+    z-index: 2;
+    animation: rotate-circle-left 60s linear forwards;
+}
+.circle::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 40px;
+    width: 80px;
+    height: 80px;
+    background: #F6C072;
+    transform-origin: left 40px;
+    z-index: 3;
+    animation: rotate-circle-right 60s linear forwards;
+}
+@media screen and (min-width:780px) {
+    .circle{
+        width: 120px;
+        height: 120px;
+    }
+    .circle::before{
+        width: 120px;
+        height: 120px;
+        left: -60px;
+        transform-origin: right 60px;
+    }
+    .circle::after{
+        width: 120px;
+        height: 120px;
+        left: 60px;
+        transform-origin: left 60px;
+    }
+}
+#TimerGauge{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 4rem;
+    color: #fff;
+    z-index: 4;
+}
+.red_time{
+    animation: TimeNumAnime_1 ease-in-out 1s infinite;
+    color: #fe9539 !important;
+}
+@keyframes TimeNumAnime_1 {
+    0%,100%{
+        font-size: 4rem;
+    }
+    50%{
+        font-size: 5rem;
+    }
+}
+.finish_time{
+    animation: TimeNumAnime_2 ease-in-out 1s infinite;
+}
+@keyframes TimeNumAnime_2 {
+    0%,100%{
+        font-size: 4rem;
+    }
+    50%{
+        font-size: 6rem;
+    }
+}
+@keyframes rotate-circle-right {
+    0%   {
+        transform: rotate(0deg);
+        background: #F6C072;
+    }
+    50%  {
+        transform: rotate(180deg);
+        background: #F6C072;
+    }
+    50.01% {
+        transform: rotate(360deg);
+        background: #9062aa;
+    }
+    100% {
+        transform: rotate(360deg);
+        background: #9062aa;
+    }
+}
+
+@keyframes rotate-circle-left {
+    0%   { transform: rotate(0deg); }
+    50%  { transform: rotate(0deg); }
+    100% { transform: rotate(180deg); }
+}
+@media screen and (min-width:780px) {
+    .circle{
+        border: solid 3px #fff;
+    }
+}
+/* ============================================= */
+/* ゲーム後の画面 */
+/* ============================================= */
+#finish_screen{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    z-index: 99999;
+    pointer-events: none;
+    transition: all .5s ease-in-out;
+}
+.finish_screen_pointer{
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+.finish_text{
+    padding-top: 4%;
+    width: 40%;
+    margin: 0 auto 30px;
+    transform: translateX(6%);
+}
+.finish_text img{
+    width: 100%;
+}
+.user_pt_text{
+    font-size: 1.8rem;
+    color: #fff;
+    letter-spacing: .1em;
+    margin-bottom: 30px;
+}
+@media screen and (min-width:780px) {
+    .finish_text{
+        padding-top: 10%;
+        margin: 0 auto 50px;
+    }
+    .user_pt_text{
+        font-size: 4rem;
+        margin-bottom: 70px;
+    }
+}
+#user_point{
+    color: #fe9539;
+    position: relative;
+}
+#user_point::before{
+    content: "";
+    width: 100%;
+    height: 3px;
+    border-radius: 1.5px;
+    background: #fe9539;
+    position: absolute;
+    bottom: -10%;
+}
+.again_text,.ranking_text{
+    display: block;
+    font-size: 2rem;
+    width: 60%;
+    margin: 0 auto 30px;
+    position: relative;
+}
+.again_text::before{
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-image: url(../img/return_game.png);
+    background-size: cover;
+    position: absolute;
+    left: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all ease-in-out .2s;
+}
+.again_text:hover:before{
+    background-image: url(../img/return_game_f.png);
+}
+.again_text::after,.ranking_text::after{
+    content: "";
+    width: 22px;
+    height: 22px;
+    background-image: url(../img/arrow_img.png);
+    background-size: cover;
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all ease-in-out .2s;
+}
+.again_text:hover:after,.ranking_text:hover:after{
+    transform: translateY(-50%) rotate(90deg);
+    background-image: url(../img/arrow_img_f.png);
+}
+.ranking_text::before{
+    content: "";
+    width: 30px;
+    height: 30px;
+    background-image: url(../img/ranking_img.png);
+    background-size: cover;
+    position: absolute;
+    left: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all ease-in-out .2s;
+}
+.ranking_text:hover::before{
+    background-image: url(../img/ranking_img_f.png);
+}
+.ranking_text_inner{
+    width: 100%;
+    margin: 0 auto;
+}
+@media screen and (min-width:780px) {
+    .again_text,.ranking_text{
+        font-size: 3rem;
+        width: 40%;
+        margin: 0 auto 50px;
+    }
+    .again_text::before{
+        width: 30px;
+        height: 30px;
+        left: 10%;
+    }
+    .again_text::after,.ranking_text::after{
+        width: 30px;
+        height: 30px;   
+        right: 10%;
+    }
+    .ranking_text::before{
+        width: 30px;
+        height: 30px;
+        left: 10%;
+    }
+}

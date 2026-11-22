@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>ハロウィンアイスキャッチゲーム</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/angle.css">
+    <style>
+        .AngleFrame{
+            flex-flow: column;
+        }
+        #btn{
+            display: block;
+            font-size: 2rem;
+            background: #9062aa;
+            padding: 10px;
+            color: #fff;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            z-index: 9999;
+            transform: translateX(-50%);
+            border-radius: 0px 0px 20px 20px ;
+        }
+        @media screen and (min-width:780px) {
+            #btn{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="fade_out">
+    <!-- 縦画面禁止 -->
+    <div id="AngleFrame">
+        <h1 id="AngleFrameText">このゲームはスマホの横画面専用です<br>※Google Chrome だとうまく動作しない可能性があります。<br>（Safari推奨）</h1>
+    </div>
+    <div id="main_wrapper">
+        <!-- ここから背景要素 -->
+        <div class="main_background_img_wrapper">
+            <img class="main_background_img" src="img/back.png" alt="ハロウイン背景画像">
+        </div>
+        <!-- 月 -->
+        <div id="moon"></div>
+        <!-- ここまでが背景要素 -->
+        <div class="Point_wrapper">
+            <div class="point_box">
+                <span id="noPt"></span><p id="PointGauge"></p><span class="Pt">pt</span>
+            </div>
+        </div>
+        <div class="Timer_wrapper">
+            <div class="circle">
+                <p id="TimerGauge"></p>
+            </div>
+        </div>
+        <p id="beta"></p>
+        <p id="gamma"></p>
+        <p id="alpha"></p>
+        <!-- コーン -->
+        <div id="cone"></div>
+        <!-- カボチャ -->
+        <div id="pumpkin_1">
+            <img class="pumpkin_img1" src="img/pumpkin.png" alt="">
+        </div>
+        <div id="pumpkin_2">
+            <img class="pumpkin_img2" src="img/pumpkin.png" alt="">
+        </div>
+        <div id="pumpkin_3">
+            <img class="pumpkin_img3" src="img/pumpkin.png" alt="">
+        </div>
+        <div id="pumpkin_4">
+            <img class="pumpkin_img4" src="img/pumpkin.png" alt="">
+        </div>
+        <!-- アイス -->
+        <div id="ice_1">
+            <img class="ice_img1" src="img/ice_obj1.png" alt="">
+        </div>
+        <div id="ice_2">
+            <img class="ice_img2" src="img/ice_obj1.png" alt="">
+        </div>
+        <div id="ice_3">
+            <img class="ice_img3" src="img/ice_obj1.png" alt="">
+        </div>
+        <div id="ice_4">
+            <img class="ice_img4" src="img/ice_obj1.png" alt="">
+        </div>
+        <!-- ここからゲーム後の画面 -->
+        <form action="http://kotokazu28.minim.ne.jp/Halloween/ranking.php" method="post" id="finish_screen">
+            <h1 class="finish_text"><img src="img/finish_text.png" alt="フィニッシュタイトル"></h1>
+            <p class="user_pt_text">あなたの合計ポイントは<span id="user_point">560</span>ポイントです。</p>
+            <a href="count.html" class="link_btn again_text"  onclick="audio()">もう一度ゲームで遊ぶ</a>
+            <input type="hidden" id="hidden" name="hidden_num" value="">
+            <div class="link_btn ranking_text">
+                <input type="submit" id="ranking_link" class="ranking_text_inner" value="ランキングに登録する" onclick="audio()">
+            </div>
+        </form>
+        <!-- ここまでがゲーム後の画面 -->
+        <!-- 効果音 -->
+        <audio src="audio/btn.mp3" id="audio_1"></audio>
+    </div>
+    <!-- スクリプト -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="js/font.js"></script>
+    <script src="js/loading.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/NotScroll.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/angle.js"></script>
+    <script src="js/height.js"></script>
+    <script>
+
+        window.addEventListener("orientationchange", ()=>{
+            setTimeout(() => {
+                let vh = window.innerHeight;
+                document.getElementById('finish_screen').style.height = vh + 'px';
+                document.getElementById('main_wrapper').style.height = vh + 'px';
+                console.log("vh");
+            }, 100);
+        });
+    </script>
+    <script>
+        let btn_a = document.getElementById("btn");
+        btn_a.addEventListener('click',function(){
+            console.log("クリック");
+        });
+        // clickイベントの処理
+            
+
+        
+        // btn_a.click();
+        // function sensor(){
+        //     console.log("クリック");
+        // }
+
+        if(window.DeviceOrientationEvent){
+            if(DeviceOrientationEvent.requestPermission){
+                btn_a.addEventListener("click",function(){
+                    console.log("クリック");
+                    DeviceOrientationEvent.requestPermission().then(function(response){
+                        if(response === "granted"){
+                            $(window).on("deviceorientation", gyro);
+                        }
+                    });
+                });
+            }else{
+                $(window).on("deviceorientation", gyro);
+            }
+        }
+        let bef;
+        function gyro(){
+            let beta = Math.floor(event.beta) ;
+        
+            let trans ;
+            if(beta > 0){
+                trans = 50 + beta;
+                if(trans<90){
+                    ConeObj.style.left = trans + "%";
+                }
+            }else if(beta < 0){
+                trans = 50 + beta;
+                if(trans>10){
+                    ConeObj.style.left = trans + "%";
+                }
+            }
+            
+        
+           
+            
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ハロウィンアイスキャッチゲーム</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/rule.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/angle.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+</head>
+<body class="fade_out">
+    <!-- 縦画面禁止 -->
+    <div id="AngleFrame">
+        <h1 id="AngleFrameText">このゲームはスマホの横画面専用です<br>※Google Chrome だとうまく動作しない可能性があります。<br>（Safari推奨）</h1>
+    </div>
+    <div id="main_wrapper">
+        <!-- ここから背景要素 -->
+        <div class="main_background_img_wrapper">
+            <img class="main_background_img" src="img/back.png" alt="ハロウイン背景画像">
+        </div>
+        <div id="moon"></div>
+        <!-- ここまでが背景要素 -->
+        <div class="rule_text_img_wrapper">
+            <img class="rule_text_img" src="img/rule_text.png" alt="ハロウィンテキスト">
+        </div>
+        <h1 class="rule_text">降ってくるアイスをキャッチすると<br class="sp">10ポイントゲットです。<br>総ポイントはランキングに載るので<br class="sp">みんなで競い合いましょう。</h1>
+        <a href="count.html" class="rule_link" onclick="audio()">スタート</a>
+    </div>
+    <!-- 効果音 -->
+    <audio src="audio/btn.mp3" id="audio_1"></audio>
+    <!-- スクリプト -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="js/font.js"></script>
+    <script src="js/loading.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/angle.js"></script>
+    <script src="js/height.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ハロウィンアイスキャッチゲーム</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/count.css">
+    <link rel="stylesheet" href="css/angle.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+</head>
+<body class="fade_out">
+    <!-- 縦画面禁止 -->
+    <div id="AngleFrame">
+        <h1 id="AngleFrameText">このゲームはスマホの横画面専用です<br>※Google Chrome だとうまく動作しない可能性があります。<br>（Safari推奨）</h1>
+    </div>
+    <div id="main_wrapper">
+        <!-- ここから背景要素 -->
+        <div class="main_background_img_wrapper">
+            <img class="main_background_img" src="img/back.png" alt="ハロウイン背景画像">
+        </div>
+        <!-- 月 -->
+        <div id="moon"></div>
+        <!-- ここまでが背景要素 -->
+        <p id="count_text"></p>
+        <div class="count_img_1"><img src="img/pumpkin.png" alt="かぽちゃ"></div>
+        <div class="count_img_2"><img src="img/pumpkin.png" alt="かぽちゃ"></div>
+        <div class="count_img_3"><img src="img/pumpkin.png" alt="かぽちゃ"></div>
+        <div class="count_img_4"><img src="img/pumpkin.png" alt="かぽちゃ"></div>
+    </div>
+    <!-- スクリプト -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="js/font.js"></script>
+    <script src="js/loading.js"></script>
+    <script src="js/count.js"></script>
+    <script src="js/NotScroll.js"></script>
+    <script src="js/angle.js"></script>
+    <script src="js/height.js"></script>
+</body>
+</html>
